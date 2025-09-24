@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>DamohNaukri - Find Latest Jobs in Damoh District</title>
+    
+    <meta name="description" content="Find the latest job vacancies in Damoh, Hatta, and the entire district. DamohNaukri is your #1 local portal for private and government job openings. Apply today!">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- Google Font Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        /* --- CSS Variables for Colors and Gradients --- */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #007BFF, #0056b3);
+            --primary-color: #007BFF;
+            --primary-hover-color: #0056b3;
+            --text-color: #333333;
+            --background-color: #f4f7f9;
+            --container-bg-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- General & Reset Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--background-color); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-hover-color); }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUpFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header & Navigation Styles --- */
+        .main-header {
+            background-color: var(--container-bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .logo .gradient-text {
+            background: linear-gradient(45deg, #007BFF, #6A11CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+        }
+        .logo i {
+            color: #6A11CB;
+            font-size: 1.5rem;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            margin: 0;
+        }
+
+        .nav-links ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-hover-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links ul li a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        .auth-buttons .btn:hover {
+            background-color: var(--primary-color);
+            color: var(--container-bg-color);
+        }
+
+        /* --- Mobile Menu Styles --- */
+        .nav-toggle { display: none; }
+        .nav-toggle-label { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        /* --- Main Content Layout --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            animation: slideUpFadeIn 0.8s ease-out;
+        }
+        .hero h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; color: #666; }
+
+        /* --- Search Area --- */
+        .search-area {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0 3rem 0;
+            animation: slideUpFadeIn 0.8s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        #search-input {
+            flex-grow: 1; padding: 0.85rem; font-size: 1rem;
+            border: 1px solid var(--border-color); border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        #search-input:focus {
+            outline: none; border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        #search-button {
+            padding: 0.85rem 2rem; font-size: 1rem; font-weight: 500;
+            background: var(--primary-gradient); color: var(--container-bg-color);
+            border: none; border-radius: 8px; cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #search-button:hover { transform: scale(1.05); }
+
+        /* --- Job Listings & Card Styles --- */
+        .listings-title {
+            text-align: center; margin-bottom: 2rem; font-size: 2rem;
+            font-weight: 700; animation: fadeIn 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        #job-listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .job-card {
+            background-color: var(--container-bg-color); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUpFadeIn 0.5s ease-out;
+        }
+        .job-card:hover {
+            transform: translateY(-8px); box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .job-card h3 { margin-bottom: 0.75rem; }
+        .job-card p {
+            display: flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 1rem; font-size: 0.95rem; color: #555;
+        }
+        .job-card i { color: var(--primary-color); }
+
+        .job-card .apply-btn {
+            display: inline-block; padding: 0.7rem 1.4rem;
+            background: var(--primary-gradient); color: var(--container-bg-color);
+            text-decoration: none; border-radius: 5px; font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        .job-card .apply-btn:hover { transform: scale(1.05); }
+
+        /* --- Footer --- */
+        footer {
+            max-width: 100%; text-align: center; margin-top: 4rem;
+            padding: 2rem; background: #343a40; color: #f8f9fa;
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            .main-header, main { padding-left: 1rem; padding-right: 1rem; }
+            .nav-links, .auth-buttons {
+                display: none; position: absolute; top: 70px; left: 0; right: 0;
+                background-color: var(--container-bg-color); flex-direction: column;
+                width: 100%; text-align: center; gap: 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1); padding-bottom: 1rem;
+            }
+            .nav-links ul { flex-direction: column; gap: 0; }
+            .nav-links ul li { padding: 1rem; width: 100%; }
+            .auth-buttons { padding-top: 1rem; }
+            .auth-buttons .btn { width: 80%; margin: 0.5rem auto; }
+            .nav-toggle-label { display: block; }
+            .nav-toggle:checked ~ .nav-links,
+            .nav-toggle:checked ~ .auth-buttons { display: flex; }
+            .hero h2 { font-size: 2rem; }
+            #job-listings { grid-template-columns: 1fr; }
+            .logo .gradient-text { font-size: 1.5rem; }
+            .logo i { font-size: 1.2rem; }
+        }
+    </style>
+    </head>
+<body>
+
+    <header class="main-header" role="banner">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-briefcase"></i> <span class="gradient-text">DamohNaukri</span>
+            </a>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            
+            <nav class="nav-links" role="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="candidate-login.html" class="btn">Login</a>
+            </div>
+
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fas fa-bars"></i>
+            </label>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h2 id="hero-title">Find Your Next Opportunity in Damoh</h2>
+            <p>Your local source for the best jobs in the district.</p>
+        </section>
+
+        <section class="search-area" role="search">
+            <input type="text" id="search-input" placeholder="Search for jobs by title..." aria-label="Job Search Input">
+            <button id="search-button" aria-label="Search Button">Search</button>
+        </section>
+
+        <section class="job-listings-container" aria-labelledby="listings-title">
+            <h2 id="listings-title" class="listings-title">Recent Openings</h2>
+            <div id="job-listings">
+                </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 DamohNaukri</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Computer Operator",
+        "company": "Shri Ram Computers",
+        "location": "Damoh",
+        "description": "Requires good knowledge of MS Office and data entry. Hindi and English typing is a must.",
+        "applyLink": "#"
+    },
+    {
+        "id": 2,
+        "title": "Sales Executive",
+        "company": "Gupta Trading Co.",
+        "location": "Hatta",
+        "description": "Field sales job for FMCG products. Bike and license are mandatory.",
+        "applyLink": "#"
+    },
+    {
+        "id": 3,
+        "title": "Accountant",
+        "company": "Agarwal & Sons",
+        "location": "Damoh",
+        "description": "Looking for an experienced accountant with Tally and GST knowledge.",
+        "applyLink": "#"
+    },
+    {
+        "id": 4,
+        "title": "School Teacher",
+        "company": "Modern Public School",
+        "location": "Patera",
+        "description": "Primary teacher required for all subjects. B.Ed is preferred.",
+        "applyLink": "#"
+    },
+    {
+        "id": 5,
+        "title": "Delivery Partner",
+        "company": "Local Logistics",
+        "location": "Damoh",
+        "description": "Urgent requirement for delivery boys for local package delivery.",
+        "applyLink": "#"
+    },
+    {
+        "id": 6,
+        "title": "Medical Representative",
+        "company": "Shiva Pharma",
+        "location": "Damoh",
+        "description": "Candidate with science background and good communication skills required.",
+        "applyLink": "#"
+    }
+]

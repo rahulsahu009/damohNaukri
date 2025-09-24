@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login - DamohNaukri</title>
+    
+    <meta name="description" content="Login to your DamohNaukri account to manage your profile and job applications. Recruiters and candidates can log in here.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- Google Font Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        /* --- CSS Variables --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #007BFF, #6A11CB);
+            --text-color: #333;
+            --light-text-color: #f8f9fa;
+            --input-border-color: #ccc;
+            --container-bg-color: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+        }
+
+        /* --- General & Reset Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Subtle background gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- Login Container & Box Styles --- */
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .login-box {
+            background: var(--container-bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* --- Form Input Styles --- */
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--input-border-color);
+            transition: color 0.3s ease;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem; /* Left padding for icon */
+            font-size: 1rem;
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        .input-field:focus + i {
+            color: #007BFF;
+        }
+
+        /* --- Button Styles --- */
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--light-text-color);
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        /* --- Links Below Form --- */
+        .links-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .links-container p {
+            margin-bottom: 1rem;
+        }
+
+        .links-container a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .links-container a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+    </head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h2>Candidate Login</h2>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" class="input-field" placeholder="Email Address" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" name="password" class="input-field" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="links-container">
+                <p><a href="recruiter-login.html">Login as a Recruiter</a></p>
+                
+                <p>Don't have an account? <a href="candidate-signup.html">Create one</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

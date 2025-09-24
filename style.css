@@ -1,0 +1,138 @@
+/* --- Header & Navigation (New Styles) --- */
+.main-header {
+    background-color: var(--container-bg-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0; /* Padding will be in the container */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-hover-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: var(--container-bg-color);
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--container-bg-color);
+}
+
+/* --- Mobile Menu Styles --- */
+.nav-toggle {
+    display: none; /* Hide the checkbox */
+}
+.nav-toggle-label {
+    display: none; /* Hide the hamburger icon on desktop */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links, .auth-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .nav-links {
+        order: 2; /* Nav links appear below auth buttons */
+        padding-bottom: 1rem;
+    }
+
+    .auth-buttons {
+        order: 1; /* Auth buttons appear first */
+        padding-top: 2rem;
+    }
+
+    .nav-toggle-label {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    /* When checkbox is checked, show the menu */
+    .nav-toggle:checked ~ .nav-links,
+    .nav-toggle:checked ~ .auth-buttons {
+        display: flex;
+    }
+
+    .header-container {
+        flex-wrap: wrap; /* Allow items to wrap */
+    }
+
+    .nav-toggle:checked ~ .logo,
+    .nav-toggle:checked ~ .nav-toggle-label {
+        margin-bottom: 1rem;
+    }
+}
